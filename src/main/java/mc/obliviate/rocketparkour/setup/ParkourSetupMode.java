@@ -27,6 +27,11 @@ public class ParkourSetupMode implements Listener {
         PARKOUR_SETUP_MODE_MAP.put(player.getUniqueId(), this);
     }
 
+    public void cancel() {
+        PARKOUR_SETUP_MODE_MAP.remove(player.getUniqueId());
+        player.sendMessage("parkour setup mode disabled.");
+    }
+
     public void finish() {
         PARKOUR_SETUP_MODE_MAP.remove(player.getUniqueId());
         AbstractParkour parkour = new StandartParkour(this.parkourName);

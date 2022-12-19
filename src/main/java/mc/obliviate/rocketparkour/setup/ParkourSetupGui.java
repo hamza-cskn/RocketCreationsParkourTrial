@@ -15,7 +15,7 @@ public class ParkourSetupGui extends Gui {
     private final ParkourSetupMode mode;
 
     public ParkourSetupGui(@Nonnull Player player, @Nonnull ParkourSetupMode mode) {
-        super(player, "pakour-setup-gui", "Parkour Setup", 5);
+        super(player, "pakour-setup-gui", "Parkour Setup", 1);
         this.mode = mode;
     }
 
@@ -50,5 +50,9 @@ public class ParkourSetupGui extends Gui {
             player.closeInventory();
         }));
 
+        addItem(8, new Icon(Material.BARRIER).setName("cancel").onClick(e -> {
+            mode.cancel();
+            player.closeInventory();
+        }));
     }
 }
