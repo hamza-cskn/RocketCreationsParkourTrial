@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+group rootProject.group
+version rootProject.version
+compileJava.options.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://libraries.minecraft.net' }
+    maven { url 'https://repo.maven.apache.org/maven2/' }
+    maven { url 'https://repo.codemc.org/repository/nms/' }
+    maven { url 'https://repo.bg-software.com/repository/api/' }
+    maven { url 'https://jitpack.io' }
+    maven { url "https://maven.enginehub.org/repo/" }
+    maven { url 'https://repo.papermc.io/repository/maven-public/' }
+
+}
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot:1.19.2-R0.1-SNAPSHOT'
+    implementation 'org.hibernate:hibernate-core:6.1.6.Final'
+    implementation 'com.github.hamza-cskn.obliviate-invs:core:4.1.9'
+    compileOnly 'com.sk89q.worldguard:worldguard-bukkit:7.0.8-SNAPSHOT'
+}
+
+artifacts.archives(tasks.shadowJar)
+
+tasks.jar {
+    enabled = true
+}
+
+tasks.shadowJar {
+    archiveFileName.set(project.name + "-" + project.version + ".jar")
+}
+
+project.setLibsDirName('D:/Users/User/Desktop/Local Servers & Setups/LOCAL 1.19/plugins')
