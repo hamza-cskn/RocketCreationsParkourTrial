@@ -1,6 +1,5 @@
 package mc.obliviate.rocketparkour.game;
 
-import com.sk89q.worldedit.util.collection.DoubleArrayList;
 import mc.obliviate.rocketparkour.RocketParkour;
 import mc.obliviate.rocketparkour.parkour.AbstractParkour;
 import mc.obliviate.rocketparkour.parkour.ParkourCheckpoint;
@@ -72,7 +71,7 @@ public class ParkourGame {
     }
 
     public boolean isFinished() {
-        return PARKOUR_GAME_MAP.get(player.getUniqueId()).equals(this);
+        return !this.equals(PARKOUR_GAME_MAP.get(player.getUniqueId()));
     }
 
     public List<ParkourCheckpoint> getCompletedCheckpoints() {
